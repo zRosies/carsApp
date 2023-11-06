@@ -1,0 +1,177 @@
+/* #000000, #FFFFFF, #B0251F, #EB362E */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+
+main {
+  margin: 0 auto;
+  margin-top: 6rem;
+}
+
+.card {
+  display: flex;
+  /* max-width: 500px; */
+}
+
+.card img {
+  object-fit: cover;
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  z-index: -3;
+}
+
+.container {
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 100px;
+  margin-bottom: 8rem;
+}
+.discover {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 500px;
+}
+
+.discover p {
+  color: #fff;
+  margin-bottom: 5px;
+}
+.discover h1 {
+  font-size: 3.4em;
+  margin: 0;
+  font-weight: larger;
+  color: #fff;
+}
+
+.discover div {
+  display: flex;
+}
+
+.discover button {
+  background: transparent;
+  outline: none;
+  border: 1.4px solid #fff;
+  color: #fff;
+  margin-top: 50px;
+  padding: 10px;
+  margin-right: 20px;
+  width: 30%;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+  font-weight: 600;
+}
+
+.discover button:hover {
+  background: #fff;
+  color: #000;
+}
+
+section {
+  display: flex;
+  width: 1000px;
+  /* display: flex; */
+  /* border: 1px solid; */
+}
+
+.get form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* max-width: 350px; */
+  /* border: 1px solid #fff; */
+  padding: 20px;
+  backdrop-filter: blur(5px);
+  background: rgb(3, 3, 3, 0.3);
+  border-radius: 10px;
+  box-shadow: 0px 0px 3px #fff;
+  width: 300px;
+  height: 290px;
+}
+
+.get form button {
+  margin-top: 20px;
+  background: #c20f2a;
+  border: none;
+  padding: 10px;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+  margin-top: 30px;
+}
+
+.get form button:hover {
+  background: #d8213c;
+}
+
+.get form select {
+  background: transparent;
+  color: #fff;
+  padding: 5px;
+  outline: none;
+  cursor: pointer;
+}
+.get form select:focus {
+  background: rgb(3, 3, 3, 0.7);
+
+  /* Set the background of the options to transparent */
+}
+.get form option {
+  font-size: 1em;
+}
+
+.get form p {
+  color: #fff;
+  margin: 5px;
+}
+
+.get form h1 {
+  margin-bottom: 1.3rem;
+  color: #fff;
+}
+
+.body {
+  margin: 0 auto;
+  margin-top: 15em;
+
+  padding: 0 15rem 0 15rem;
+
+  position: relative;
+  background: #fff;
+  height: 50vh;
+}
+
+.body h1 {
+  font-weight: 600;
+  font-size: 3rem;
+  text-align: center;
+  padding-top: 2rem;
+}
+
+.divisor {
+  display: flex;
+}
+
+.divisor h4 {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.divisor div {
+  border: 1px solid #888888;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-right: 20px;
+  padding: 19px;
+}
+
+#span {
+  text-decoration: none;
+  margin-top: 100vh;
+  color: #000;
+}

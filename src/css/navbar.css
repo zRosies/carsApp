@@ -1,0 +1,94 @@
+header {
+  margin: 0;
+  border-bottom: 1px solid #fff;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+  backdrop-filter: blur(100px);
+  position: fixed;
+  width: 99%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+header button {
+  background: transparent;
+  outline: none;
+  border: 1.4px solid #fff;
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+header img {
+  position: absolute;
+  width: 130px;
+  height: 130px;
+  /* border: 2px solid #fff; */
+  margin: 0;
+  padding: 0;
+  top: -1rem;
+  border-radius: 100%;
+  padding: 0;
+  /* box-shadow: 2px 2px 5px #fff; */
+}
+
+header button:hover {
+  background: #fff;
+  color: #000;
+}
+
+header svg {
+  color: #fff;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+header nav ul {
+  list-style: none;
+}
+
+.navbar ul {
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar ul li a {
+  margin-right: 20px;
+  cursor: pointer;
+  text-decoration: none;
+  color: #e8e6e6;
+  position: relative;
+  font-size: 1.1em;
+}
+
+.navbar ul li a::after {
+  content: "";
+  position: absolute;
+  background: #fff;
+  color: #fff;
+  height: 2px;
+  width: 0;
+  bottom: -6px;
+  left: 50%;
+  transform: translate(-50%);
+  transition: 0.3s;
+}
+
+nav ul li a:hover {
+  color: #fff;
+}
+
+.navbar ul li a:hover::after {
+  color: #fff;
+  width: 100%;
+}
+
+.cart {
+  margin-right: 2rem;
+}

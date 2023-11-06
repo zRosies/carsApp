@@ -1,0 +1,7 @@
+.active-button {
+  background: #fff !important;
+  color: #000 !important;
+  border: 1.4px solid #000;
+  /* transform: scale(0.95); */
+  transition: 0.3s ease-in-out;
+}
