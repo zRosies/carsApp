@@ -26,10 +26,17 @@ const Footer = () => {
               <BsTelephoneFill />
               <span>+1 (942) 2342-2345</span>
             </div>
-            <div>
-              <BsFacebook />
-              <BsInstagram />
-              <BsTwitter />
+            <div className="media">
+              <a href="https://www.facebook.com/" target="blank">
+                <BsFacebook />
+              </a>
+              <a href="https://www.instagram.com/" target="blank">
+                <BsInstagram />
+              </a>
+
+              <a href="https://www.twitter.com" target="blank">
+                <BsTwitter />
+              </a>
             </div>
           </div>
           <div className="shop">

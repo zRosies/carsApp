@@ -11,7 +11,8 @@ header {
   width: 99%;
   top: 0;
   left: 0;
-  z-index: 1;
+  z-index: 5;
+  transition: 0.37s ease-in-out;
 }
 
 header button {
@@ -20,7 +21,7 @@ header button {
   border: 1.4px solid #fff;
   color: #fff;
   padding: 10px;
-  border-radius: 5px;
+  border-radius: 1px;
   cursor: pointer;
   transition: 0.2s ease-in-out;
 }
@@ -32,7 +33,7 @@ header img {
   /* border: 2px solid #fff; */
   margin: 0;
   padding: 0;
-  top: -1rem;
+  top: -1.5rem;
   border-radius: 100%;
   padding: 0;
   /* box-shadow: 2px 2px 5px #fff; */
@@ -87,6 +88,11 @@ nav ul li a:hover {
 .navbar ul li a:hover::after {
   color: #fff;
   width: 100%;
+}
+
+header.active {
+  background: #000;
+  border: none;
 }
 
 .cart {

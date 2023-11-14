@@ -4,7 +4,9 @@ import { useEffect, useState } from "react";
 import "../css/home.css";
 import { getCars } from "../connection/connection";
 import Button from "../components/button";
-import HomeForm from "../components/Homeform";
+// import HomeForm from "../components/Homeform";
+import { Link } from "react-router-dom";
+import picture from "./medio.jpg";
 
 function Home() {
   const [carlist, setCard] = useState([]);
@@ -19,20 +21,17 @@ function Home() {
     getCarList();
   }, []);
 
-  // console.log(carlist);
-
   return (
     <>
       <main>
         {carlist.map((car) => {
+          // console.log(car);
           return (
-            <>
+            <div key={car.id}>
               {car.name === "r5" ? (
-                <div className="card">
-                  <img src={car.image.url} alt="react" />
-                </div>
+                <img src={car.image.url} alt="react" id="hero" />
               ) : null}
-            </>
+            </div>
           );
         })}
 
@@ -47,11 +46,11 @@ function Home() {
               <Button />
             </div>
           </section>
-          <HomeForm></HomeForm>
+          {/* <HomeForm></HomeForm> */}
         </section>
         <div className="body">
           <h1>Welcome to Veloster</h1>
-          <div className="divisor">
+          <section className="divisor">
             <div>
               <h4>Variety of Cars</h4>
               <p>
@@ -73,7 +72,25 @@ function Home() {
                 Quisquam, reprehenderit. Incidunt ea, repellendus laborum
               </p>
             </div>
-          </div>
+          </section>
+          <section className="secondsection">
+            <div>
+              <p>For all tastes</p>
+              <h3>Enjoy The Comfort That Only Veloster cars can give.</h3>
+              <p>
+                At our car rental service, we turn wishes into reality. With
+                just two clicks, embark on a journey tailored to your desires.
+                Say yes to convenience, and let us pave the way for your
+                extraordinary travel experience.
+              </p>
+              <Link to="/cars">
+                <button>Discover</button>
+              </Link>
+            </div>
+            <div className="side">
+              <img src={picture} alt="test" />
+            </div>
+          </section>
         </div>
       </main>
     </>

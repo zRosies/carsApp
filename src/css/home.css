@@ -5,35 +5,56 @@
 main {
   margin: 0 auto;
   margin-top: 6rem;
+  max-width: 1920px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
 }
 
 .card {
-  display: flex;
+  /* display: flex; */
   /* max-width: 500px; */
+  /* position: relative; */
 }
 
-.card img {
-  object-fit: cover;
+#hero {
   position: fixed;
+  top: -8rem;
   width: 100%;
-  height: 100vh;
-  left: 0;
-  top: 0;
-  z-index: -3;
+  max-width: 50vh;
+  object-fit: cover;
+  max-width: 1920px;
 }
+
+/* .card img {
+  object-fit: cover;
+  position: absolute;
+  width: 100%;
+  height: 10vh;
+  left: 0;
+  top: -10rem;
+  z-index: -3;
+} */
 
 .container {
-  margin: 0 auto;
+  margin: 10px auto;
   display: flex;
   justify-content: space-between;
   margin-top: 100px;
-  margin-bottom: 8rem;
+  margin-bottom: 18rem;
+
+  max-width: 1000px;
+  position: relative;
+  top: 5rem;
 }
 .discover {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 500px;
+  /* width: 500px; */
+  background: 2px solid red;
+  /* position: absolute; */
+  z-index: 1;
 }
 
 .discover p {
@@ -72,17 +93,12 @@ main {
 
 section {
   display: flex;
-  width: 1000px;
-  /* display: flex; */
-  /* border: 1px solid; */
 }
 
 .get form {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* max-width: 350px; */
-  /* border: 1px solid #fff; */
   padding: 20px;
   backdrop-filter: blur(5px);
   background: rgb(3, 3, 3, 0.3);
@@ -134,14 +150,16 @@ section {
 }
 
 .body {
+  /* border: 2px solid red; */
   margin: 0 auto;
-  margin-top: 15em;
+  position: relative;
+  /* margin-top: 15em; */
 
   padding: 0 15rem 0 15rem;
 
-  position: relative;
   background: #fff;
-  height: 50vh;
+  height: 100%;
+  /* padding-bottom: 50px; */
 }
 
 .body h1 {
@@ -149,13 +167,17 @@ section {
   font-size: 3rem;
   text-align: center;
   padding-top: 2rem;
+  margin-bottom: 60px;
+  padding-bottom: 10px;
 }
 
 .divisor {
   display: flex;
+  margin: 0 auto;
 }
 
 .divisor h4 {
+  font-family: "Poppins";
   font-size: 1.3rem;
   font-weight: bold;
   margin: 0;
@@ -174,4 +196,151 @@ section {
   text-decoration: none;
   margin-top: 100vh;
   color: #000;
+}
+
+.secondsection {
+  margin: 0 auto;
+  margin-top: 80px;
+  display: flex;
+  justify-content: space-between;
+  /* margin-bottom: 30px; */
+  /* border: 1px solid red; */
+  padding-bottom: 20px;
+}
+
+.secondsection button {
+  background: #fff;
+  outline: none;
+  border: 1px solid #000;
+  color: #000;
+  padding: 15px;
+  margin-top: 1rem;
+  width: 35%;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+  font-weight: 600;
+}
+
+.secondsection button:hover {
+  background: #000;
+  color: #fff;
+}
+
+.secondsection h3 {
+  font-size: 2em;
+  font-family: "Poppins";
+}
+
+.secondsection p {
+  font-family: "Poppins";
+  font-size: 0.9em;
+}
+
+.secondsection div {
+  max-width: 800px;
+  height: 400px;
+  width: 100%;
+}
+
+.side img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media screen and (max-width: 900px) {
+  header {
+    /* display: none; */
+  }
+  .container {
+    display: flex;
+    flex-direction: column;
+    /* display: none; */
+    /* width: 50%; */
+    /* margin: 0 auto !important; */
+    width: 100%;
+  }
+  .discover {
+    /* width: 100%; */
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+  }
+  .discover div {
+    justify-content: center;
+  }
+  .container .discover {
+    margin: 0;
+  }
+  #hero {
+    /* position: absolute; */
+    height: 100%;
+    width: 100%;
+    top: 2rem;
+    object-fit: cover;
+    /* height: 100%; */
+    /* max-width: 800px; */
+    /* object-fit: cover; */
+    /* max-height: 100vh; */
+  }
+  .container form {
+    display: none;
+  }
+  .body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+  }
+  .body h1 {
+    margin: 0;
+    font-size: 2em;
+  }
+
+  .divisor {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .divisor h1 {
+    font-size: 1em;
+  }
+  .divisor div {
+    padding: 0;
+
+    display: flex;
+    margin: 20px;
+    padding: 20px;
+    width: 80%;
+    margin: 10px auto;
+  }
+  .secondsection {
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 20px;
+    justify-content: end;
+  }
+
+  .secondsection div {
+    all: unset;
+    max-width: 100vw;
+    height: 50vh;
+    padding: 20px;
+  }
+  .secondsection img {
+    /* display: none; */
+    width: 100%;
+    margin: 0;
+  }
+  .side {
+    max-width: 100%;
+    width: 100%;
+  }
+  .secondsection button {
+    width: 100%;
+    padding: 20px;
+  }
 }

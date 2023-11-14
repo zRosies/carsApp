@@ -36,12 +36,14 @@ function HomeForm() {
           <select
             name="select"
             id="select"
+            defaultValue={brand}
+            key="aaaa"
             onChange={(e) => {
               setBrand(e.target.value);
             }}
           >
             Brand
-            <option value="" disabled selected>
+            <option defaultValue="aaa" disabled selected>
               Select a Brand
             </option>
             {carlist.map((car) => {
@@ -57,8 +59,8 @@ function HomeForm() {
             })}
           </select>
           <p>Car</p>
-          <select>
-            <option value="" disabled selected>
+          <select defaultValue={brand} key={"brand"}>
+            <option value="bbbb" disabled selected>
               Select a car
             </option>
             {carlist.map((car) => {
