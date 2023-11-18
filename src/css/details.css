@@ -1,3 +1,90 @@
-section {
+/* section {
   margin-top: 200px;
+} */
+
+section {
+  margin: 0;
+}
+
+.container {
+  max-width: 900px;
+}
+
+.description {
+  max-width: 500px;
+  border-right: 2px solid #000;
+}
+
+.photo {
+  max-width: 500px;
+  overflow: hidden;
+  margin-right: 10px;
+}
+
+.description p:first-of-type {
+  font-size: 1.3rem;
+  font-weight: 800;
+  /* text-align: center; */
+}
+
+.description .star {
+  color: #cb9b17;
+  font-size: 2em;
+}
+.photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.3s ease-in-out;
+}
+
+.photo img:hover {
+  transform: scale(1.1);
+}
+
+.info button {
+  background: linear-gradient(to right, #521a23 6%, #770303 100%);
+  color: #fff;
+  display: flex;
+  /* font-weight: 700; */
+  font-size: 1em;
+  border: none;
+  padding: 15px;
+  width: 250px;
+  margin: 0 auto;
+  justify-content: center;
+  cursor: pointer;
+  /* transition: 0.3s ease-in-out; */
+}
+
+.info button:hover {
+  background: #000;
+}
+
+form input {
+  width: 100%;
+  margin: 5px;
+  height: 18px;
+}
+
+.info {
+  margin-left: 20px;
+}
+
+form fieldset {
+  border: none;
+  margin-top: 60px;
+}
+
+.quantity {
+  all: unset !important;
+}
+
+.method {
+  display: flex;
+  justify-content: center;
+}
+
+.text {
+  display: block;
 }

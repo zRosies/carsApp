@@ -2,6 +2,7 @@
 import { getCars } from "../connection/connection";
 import { useEffect, useState } from "react";
 import "../css/cars.css";
+import { convertFloatToStar } from "../components/ConvertToStar";
 import { Link } from "react-router-dom";
 
 export default function Home() {
@@ -23,20 +24,6 @@ export default function Home() {
     getCarsInfo();
   }, []);
   // console.log(carsInfo);
-
-  const convertFloatToStar = (value) => {
-    let stars = "";
-
-    for (let number = 1; number <= 5; number++) {
-      if (number <= value) {
-        stars += "★";
-      } else {
-        stars += "☆";
-      }
-    }
-    // console.log(stars);
-    return stars;
-  };
 
   return (
     <>
@@ -64,7 +51,7 @@ export default function Home() {
                   <span>{car.carAvg}</span>
                 </div>
 
-                <p className="mx-3">
+                <p className="price-car">
                   ${car.price}
                   <span>/Day</span>
                 </p>

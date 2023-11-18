@@ -27,7 +27,7 @@ export const getCars = async () => {
 };
 
 export const getCar = async (carId) => {
-  console.log(carId);
+  // console.log(carId);
   const query = gql`
     query Cars {
       cars(where: { id: "${carId}" }) {
@@ -38,6 +38,8 @@ export const getCar = async (carId) => {
         price
         publishedAt
         updatedAt
+        description
+        seats
         image {
           url
         }
@@ -46,6 +48,6 @@ export const getCar = async (carId) => {
   `;
 
   const result = await request(url, query);
-  console.log(result);
+  // console.log(result);
   return result;
 };

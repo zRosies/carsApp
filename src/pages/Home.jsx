@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import "../css/home.css";
 import { getCars } from "../connection/connection";
 import Button from "../components/button";
-// import HomeForm from "../components/Homeform";
+import HomeForm from "../components/Homeform";
 import { Link } from "react-router-dom";
 import picture from "./medio.jpg";
 
@@ -28,7 +28,7 @@ function Home() {
           // console.log(car);
           return (
             <div key={car.id}>
-              {car.name === "r5" ? (
+              {car.name === "R8" ? (
                 <img src={car.image.url} alt="react" id="hero" />
               ) : null}
             </div>
@@ -36,17 +36,15 @@ function Home() {
         })}
 
         <section className="container">
-          <section className="discover">
+          <div className="discover">
             <p>New in Stock</p>
             <h1>Upgrade Your</h1>
             <h1>Driving Experience</h1>
             <div>
-              {/* <button>Discover More</button>
-          <button>Meet R5</button> */}
               <Button />
             </div>
-          </section>
-          {/* <HomeForm></HomeForm> */}
+          </div>
+          <HomeForm></HomeForm>
         </section>
         <div className="body">
           <h1>Welcome to Veloster</h1>

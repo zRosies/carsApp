@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
 .background {
   background: #2d2c2c;
   position: absolute;
@@ -47,8 +48,10 @@ main {
 
 .carDiv button {
   display: flex;
+  /* font-family: "Poppins"; */
   margin-top: 1.5rem;
   padding: 0.75rem;
+  font-weight: 800;
   background-color: black;
   width: 90%;
   color: white;
@@ -97,8 +100,13 @@ main {
   margin-left: 0.75rem;
   margin-right: 0.75rem;
   /* text-align: center; */
-  color: rgb(224, 195, 9);
-  text-shadow: 0px 1px 1px #2d2c2c;
+  color: #dda710;
+  /* text-shadow: 0px 1px 1px #2d2c2c; */
+}
+
+.seats {
+  font-size: 1.1em;
+  margin: 5px;
 }
 
 .price {
@@ -106,4 +114,9 @@ main {
   text-align: start;
   margin-top: 0.5rem;
   margin-left: 1rem;
+}
+
+.price-car {
+  margin: 0.8rem;
+  font-size: 1.1rem;
 }
