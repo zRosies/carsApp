@@ -2,7 +2,7 @@
 import { getCars } from "../connection/connection";
 import { useEffect, useState } from "react";
 import "../css/cars.css";
-import { convertFloatToStar } from "../components/ConvertToStar";
+import { convertFloatToStar } from "../components/utils";
 import { Link } from "react-router-dom";
 
 export default function Home() {

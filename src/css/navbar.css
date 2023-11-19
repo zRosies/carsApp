@@ -81,6 +81,27 @@ header nav ul {
   transition: 0.3s;
 }
 
+.cart {
+  position: relative;
+}
+
+.counter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left: 25%;
+  top: -10px;
+  font-size: 0.8em;
+  border: 3px solid #521a23;
+  background: #fff;
+  color: #521a23;
+  padding: 4px;
+  border-radius: 50%;
+  width: 8px;
+  height: 8px;
+}
+
 nav ul li a:hover {
   color: #fff;
 }

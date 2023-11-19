@@ -40,6 +40,8 @@ export const getCar = async (carId) => {
         updatedAt
         description
         seats
+        hpower
+        speed
         image {
           url
         }
