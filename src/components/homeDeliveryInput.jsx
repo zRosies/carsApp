@@ -1,7 +1,9 @@
 import { useState } from "react";
 
-const HomeDelivery = () => {
+const HomeDelivery = ({ handleDelivery }) => {
   const [isDelivery, setIsDelivery] = useState(false);
+
+  handleDelivery(isDelivery);
 
   return (
     <>

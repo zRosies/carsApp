@@ -13,8 +13,8 @@ const Navbar = () => {
 
   useEffect(() => {
     // console.log(location.pathname);
-    // addToCart();
-    addToCart();
+    // contCarNumber();
+    contCarNumber();
     const handleScroll = () => {
       if (location.pathname != "/" || window.scrollY > 10) {
         setIsScrolled(true);
@@ -30,7 +30,7 @@ const Navbar = () => {
     };
   }, [location]);
 
-  const addToCart = () => {
+  const contCarNumber = () => {
     if (localStorage.getItem("cart") != null) {
       const cars = localStorage.getItem("cart");
       setCarsInCart(JSON.parse(cars).length);

@@ -11,3 +11,14 @@ export const convertFloatToStar = (value) => {
   // console.log(stars);
   return stars;
 };
+
+// export const addToCart = (item) => {
+//   let cart = JSON.parse(localStorage.getItem("cart")) || [];
+//   cart.push(item);
+//   localStorage.setItem("cart", JSON.stringify(cart));
+// };
+
+// export const getCartCount = () => {
+//   const cart = JSON.parse(localStorage.getItem("cart")) || [];
+//   return cart.length;
+// };

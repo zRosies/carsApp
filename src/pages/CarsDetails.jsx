@@ -9,20 +9,24 @@ import { GiHorseHead } from "react-icons/gi";
 import QuantityInput from "../components/quantityInput";
 import HomeDelivery from "../components/homeDeliveryInput";
 
-// import "bootstrap/dist/css/bootstrap.min.css";
-
 const Details = () => {
   const [carInfo, setCars] = useState([]);
-
+  const [quantity, setQuantity] = useState(0);
+  const [isDelivery, setIsDelivery] = useState(false);
+  const [date, setDate] = useState("");
   const { id } = useParams();
+
+  const handleQuantityChange = (newQuantity) => {
+    setQuantity(newQuantity);
+  };
+
+  const handleDelivery = (delivery) => {
+    setIsDelivery(delivery);
+  };
 
   const getCarsInfo = async () => {
     try {
       const response = await getCar(id);
-
-      // setCars(response);
-      // console.log(response["cars"]);
-
       return setCars(response["cars"]);
     } catch (error) {
       console.error("Error fetching data:", error);
@@ -33,17 +37,29 @@ const Details = () => {
     getCarsInfo(id);
   }, []);
 
-  const addToCart = () => {
+  const addToCartInfo = () => {
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-    // console.log(cart);
-    // if (cart.includes(carInfo[0])) {
-    //   console.log("aaaaa");
-    // }
-    cart.push(carInfo[0]);
+    const clientOption = {
+      cars: quantity,
+      delivery: isDelivery,
+      date: date,
+    };
 
+    const cartInformation = {
+      car: carInfo[0],
+      paymentInfo: clientOption,
+    };
+
+    cart.push(cartInformation);
+
+    console.log(cart);
     localStorage.setItem("cart", JSON.stringify(cart)) || [];
   };
+
+  console.log(quantity);
+  console.log(isDelivery);
+  console.log(date);
 
   return (
     <>
@@ -88,10 +104,18 @@ const Details = () => {
                     >
                       <label htmlFor="date">
                         Date:
-                        <input type="date" id="date" />
+                        <input
+                          type="date"
+                          id="date"
+                          onChange={(e) => {
+                            setDate(e.target.value);
+                          }}
+                        />
                       </label>
-                      <QuantityInput />
-                      <HomeDelivery />
+                      <QuantityInput
+                        handleQuantityChange={handleQuantityChange}
+                      />
+                      <HomeDelivery handleDelivery={handleDelivery} />
                       <p id="price">Price: ${car.price}</p>
                       <p className="ptitle">Payment</p>
                       <fieldset>
@@ -105,7 +129,7 @@ const Details = () => {
                         <button
                           type=""
                           className="addtocart"
-                          onClick={addToCart}
+                          onClick={addToCartInfo}
                         >
                           Add to cart <FaCartShopping />
                         </button>

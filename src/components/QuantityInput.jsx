@@ -1,10 +1,12 @@
 import { useState } from "react";
 
-const QuantityInput = () => {
+const QuantityInput = ({ handleQuantityChange }) => {
   const [value, setValue] = useState(1);
+  handleQuantityChange(value);
 
   const handleInputChange = (e) => {
-    setValue(e.target.value);
+    const newValue = parseInt(e.target.value);
+    setValue(newValue);
   };
 
   const addValue = () => {
