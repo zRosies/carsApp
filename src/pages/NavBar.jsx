@@ -4,16 +4,14 @@ import { faShoppingCart, faSearch } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+import Cart from "../components/cart";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [carsInCart, setCarsInCart] = useState(0);
   const location = useLocation();
-  // console.log(location.pathname);
 
   useEffect(() => {
-    // console.log(location.pathname);
-    // contCarNumber();
     contCarNumber();
     const handleScroll = () => {
       if (location.pathname != "/" || window.scrollY > 10) {
@@ -43,7 +41,7 @@ const Navbar = () => {
         <Link to="/">
           <img src="./logo4.png" alt="test" />
         </Link>
-        {/* <span></span> */}
+
         <nav className="navbar">
           <ul>
             <li>
@@ -71,6 +69,7 @@ const Navbar = () => {
           <Link to="/cars">
             <button>Explore Vehicles</button>
           </Link>
+          <Cart />
         </div>
       </header>
     </>

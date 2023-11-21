@@ -51,6 +51,7 @@ const Footer = () => {
             <p>Contact Us</p>
           </div>
         </div>
+        <p>Gustavo Bispo 2023 |Not a real Business| All rights reserved</p>
       </footer>
     </>
   );

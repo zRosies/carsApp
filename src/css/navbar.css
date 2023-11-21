@@ -118,4 +118,32 @@ header.active {
 
 .cart {
   margin-right: 2rem;
+  position: relative;
+}
+
+.cart-open {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+
+  right: 70%;
+  top: 90%;
+  background: #0d0c0c;
+  overflow: hidden;
+  /* height: 400px; */
+  width: 250px;
+  /* border: 2px dotted red; */
+
+  box-shadow: 2px 2px 5px #000;
+  border-radius: 10px;
+  padding: 10px;
+}
+#go-to-cart {
+  border: none;
+  background: linear-gradient(to right, #212121 6%, #0d0c0c 100%);
+}
+
+#cancel {
+  border: none;
+  background: linear-gradient(to right, #c9c9c9 6%, #cec4c4 100%);
 }

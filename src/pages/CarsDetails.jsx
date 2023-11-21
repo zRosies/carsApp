@@ -1,28 +1,24 @@
 import "../css/details.css";
 import { useState, useEffect } from "react";
 import { getCar } from "../connection/connection";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { convertFloatToStar } from "../components/utils";
 import { FaBolt, FaCartShopping } from "react-icons/fa6";
 import { IoMdPeople, IoMdSpeedometer } from "react-icons/io";
 import { GiHorseHead } from "react-icons/gi";
 import QuantityInput from "../components/quantityInput";
 import HomeDelivery from "../components/homeDeliveryInput";
+import TotalPrice from "../components/totalPrice";
 
 const Details = () => {
   const [carInfo, setCars] = useState([]);
-  const [quantity, setQuantity] = useState(0);
+  const [quantity, setQuantity] = useState(1);
   const [isDelivery, setIsDelivery] = useState(false);
+  const [totalPrice, setTotalPrice] = useState(0);
+  const [fee, setFee] = useState(0);
   const [date, setDate] = useState("");
   const { id } = useParams();
-
-  const handleQuantityChange = (newQuantity) => {
-    setQuantity(newQuantity);
-  };
-
-  const handleDelivery = (delivery) => {
-    setIsDelivery(delivery);
-  };
+  const navigate = useNavigate();
 
   const getCarsInfo = async () => {
     try {
@@ -37,6 +33,14 @@ const Details = () => {
     getCarsInfo(id);
   }, []);
 
+  const handleQuantityChange = (newQuantity) => {
+    setQuantity(newQuantity);
+  };
+
+  const handleDelivery = (delivery) => {
+    setIsDelivery(delivery);
+  };
+
   const addToCartInfo = () => {
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
@@ -44,6 +48,8 @@ const Details = () => {
       cars: quantity,
       delivery: isDelivery,
       date: date,
+      price: totalPrice,
+      fee: fee,
     };
 
     const cartInformation = {
@@ -57,19 +63,20 @@ const Details = () => {
     localStorage.setItem("cart", JSON.stringify(cart)) || [];
   };
 
-  console.log(quantity);
-  console.log(isDelivery);
-  console.log(date);
+  const submitInfoAndRedirect = () => {
+    addToCartInfo();
+    navigate("/checkout");
+  };
 
   return (
     <>
       <main>
         <section>
           {carInfo.map((car) => {
-            // console.log(car);
             return (
               <>
                 <div key={car.id} className="car-container">
+                  {/*--------------------- car description here----------------- */}
                   <div className="description">
                     <div className="photo">
                       <img src={car.image.url} alt={car.name} width={300} />
@@ -86,18 +93,23 @@ const Details = () => {
                         <span>{car.hpower}</span>
                       </p>
                     </div>
-                    <p>
-                      {car.carBrand} {car.name}
-                    </p>
-                    <p className="star">{convertFloatToStar(car.carAvg)}</p>
+                    <div className="brand">
+                      <div>
+                        <p>
+                          {car.carBrand} {car.name}
+                        </p>
+                        <p className="star">{convertFloatToStar(car.carAvg)}</p>
+                      </div>
+                      <span>${car.price}</span>
+                    </div>
 
-                    <p>
+                    <p className="desc">
                       Description: <span>{car.description}</span>{" "}
                     </p>
                   </div>
+                  {/*--------------------- form here----------------- */}
                   <div className="info">
                     <form
-                      action=""
                       onSubmit={(e) => {
                         e.preventDefault();
                       }}
@@ -116,14 +128,23 @@ const Details = () => {
                         handleQuantityChange={handleQuantityChange}
                       />
                       <HomeDelivery handleDelivery={handleDelivery} />
-                      <p id="price">Price: ${car.price}</p>
+
                       <p className="ptitle">Payment</p>
-                      <fieldset>
-                        <p>Fees: $ 00.00</p>
-                        <p>Total: $ 00.00</p>
-                      </fieldset>
+                      <TotalPrice
+                        quantity={quantity}
+                        car={car}
+                        setTotal={setTotalPrice}
+                        setFee={setFee}
+                        isDelivery={isDelivery}
+                        fee={fee}
+                      />
+
                       <div className="buttons">
-                        <button type="submit" className="rent">
+                        <button
+                          type="submit"
+                          className="rent"
+                          onClick={submitInfoAndRedirect}
+                        >
                           Rent Now <FaBolt />
                         </button>
                         <button
@@ -141,7 +162,6 @@ const Details = () => {
             );
           })}
         </section>
-        {/* <section>aaaaaaaaaaaaa</section> */}
       </main>
     </>
   );
