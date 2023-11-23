@@ -1,0 +1,80 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 312px);
+  grid-template-rows: repeat(2, 140px) 200px;
+  grid-gap: 13px;
+  margin: 0 auto;
+
+  justify-content: center;
+
+  div {
+    overflow: hidden;
+    border-radius: 8px;
+  }
+  img {
+    width: 100%;
+    height: 100%;
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+  }
+  img:hover {
+    background: #000;
+    transform: scale(1.04);
+  }
+}
+
+.grid-motorista,
+.grid-montador {
+  grid-row: 1/3;
+}
+
+.grid-pedreiro {
+  grid-row: 3/4;
+  grid-column: 1/3;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.grid-cozinheiro {
+  grid-column: 3/5;
+  grid-row: 1/4;
+}
+
+@media screen AND (max-width: 800px) {
+  .grid-container {
+    grid-template-columns: repeat(2, 168.5px);
+    grid-template-rows: 190px 60px 190px;
+
+    gap: 5px;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: fill;
+      transition: 0.2s ease-in-out;
+      cursor: pointer;
+    }
+    img:hover {
+      background: #000;
+      transform: scale(1.04);
+    }
+    // margin: 5px auto;
+  }
+
+  .grid-motorista {
+    grid-column: 1/2;
+    grid-row: 1/3;
+  }
+  .grid-montador {
+    grid-column: 2/2;
+    grid-row: 1/2;
+  }
+  .grid-cozinheiro {
+    grid-column: 2/2;
+    grid-row: 2/4;
+  }
+  .grid-pedreiro {
+    grid-row: 3/4;
+    grid-column: 1/2;
+  }
+}
