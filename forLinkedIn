@@ -78,3 +78,39 @@
     grid-column: 1/2;
   }
 }
+
+import './style.scss';
+
+import { app_base_url } from '../../services/api';
+
+const GridProductCard = ({ data, containerName = 'container' }) => {
+  const isMobileView = window.innerWidth <= 768;
+
+  return (
+    <div className={`grid-${containerName}`}>
+      {data.map(image => {
+        return (
+          <div
+            key={image.id}
+            className={`grid-${image.name}`}
+          >
+            <a href={image.slug}>
+              <img
+                // if it is mobile apply the images with another ratio
+                src={
+                  isMobileView
+                    ? `https://cdn.speedsize.com/${process.env.REACT_APP_CLIENT_ID}/${app_base_url + image.src_mob}/f_auto`
+                    : `https://cdn.speedsize.com/${process.env.REACT_APP_CLIENT_ID}/${app_base_url + image.src}/f_auto`
+                }
+                alt={image.slug}
+              />
+            </a>
+          </div>
+        );
+      })}
+    </div>
+  );
+};
+
+export default GridProductCard;
+
