@@ -1,4 +1,4 @@
-import "../css/footer.css";
+import "../../css/footer.css";
 
 import {
   BsFacebook,
@@ -28,13 +28,17 @@ const Footer = () => {
             </div>
             <div className="media">
               <a href="https://www.facebook.com/" target="blank">
+                <span style={{ display: "none" }}>fb</span>
                 <BsFacebook />
               </a>
               <a href="https://www.instagram.com/" target="blank">
+                <span style={{ display: "none" }}>Instagram</span>
+
                 <BsInstagram />
               </a>
 
               <a href="https://www.twitter.com" target="blank">
+                <span style={{ display: "none" }}>twt</span>
                 <BsTwitter />
               </a>
             </div>
@@ -51,7 +55,9 @@ const Footer = () => {
             <p>Contact Us</p>
           </div>
         </div>
-        <p>Gustavo Bispo 2023 |Not a real Business| All rights reserved</p>
+        <p id="desc">
+          Gustavo Bispo 2023 | Not a real Business | All rights reserved &copy;
+        </p>
       </footer>
     </>
   );

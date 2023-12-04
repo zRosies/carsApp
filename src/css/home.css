@@ -82,12 +82,16 @@ main {
   border: 1.4px solid #fff;
   color: #fff;
   margin-top: 50px;
-  padding: 10px;
+  padding: 15px;
   margin-right: 20px;
-  width: 30%;
+  width: 80%;
   cursor: pointer;
   transition: 0.2s ease-in-out;
   font-weight: 600;
+}
+
+.discover a {
+  width: 100%;
 }
 
 .discover button:hover {
@@ -252,10 +256,42 @@ section {
   object-fit: cover;
 }
 
+#loading {
+  animation: loading 2.3s infinite;
+  position: relative;
+  top: 200px;
+  width: 200px;
+  left: 40%;
+  z-index: 5;
+  margin-bottom: 400px;
+}
+
+@keyframes loading {
+  0% {
+    transform: rotate(0deg);
+  }
+  20% {
+    transform: rotate(360deg) translateX(100px);
+  }
+  40% {
+    transform: rotate(720deg) translateX(110px) scale(2);
+  }
+  60% {
+    transform: rotate(1080deg);
+  }
+  80% {
+    transform: rotate(1440deg);
+  }
+  100% {
+    transform: rotate(1800deg);
+  }
+}
+
 @media screen and (max-width: 900px) {
   header {
     /* display: none; */
   }
+
   .container {
     display: flex;
     flex-direction: column;
@@ -282,10 +318,6 @@ section {
     width: 100%;
     top: 2rem;
     object-fit: cover;
-    /* height: 100%; */
-    /* max-width: 800px; */
-    /* object-fit: cover; */
-    /* max-height: 100vh; */
   }
   .container form {
     display: none;

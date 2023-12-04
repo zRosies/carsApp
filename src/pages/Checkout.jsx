@@ -5,6 +5,7 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 import "../css/checkout.css";
 import { useEffect, useState } from "react";
+import { getCartInfo, getPriceInfo } from "../components/utils";
 
 const Checkout = () => {
   const [carInformation, setCart] = useState([]);
@@ -13,40 +14,17 @@ const Checkout = () => {
   const [items, setItems] = useState(0);
   const [carsPrice, setCarsPrice] = useState(0);
 
-  const getCartInfo = () => {
-    const cartInfo = JSON.parse(localStorage.getItem("cart"));
-    setCart(cartInfo);
-  };
-
-  const getPriceInfo = () => {
-    let price = 0;
-    let fee = 0;
-    let items = 0;
-    let cars = 0;
-    carInformation.map((item) => {
-      const { car, paymentInfo } = item;
-      fee += parseFloat(paymentInfo.fee);
-      price += parseFloat(paymentInfo.price);
-      cars += parseFloat(car.price) * parseFloat(paymentInfo.cars);
-      items += parseFloat(paymentInfo.cars);
-    });
-    setTotal(price);
-    setFee(fee);
-    setItems(items);
-    setCarsPrice(cars);
-  };
-
   useEffect(() => {
-    getCartInfo();
+    getCartInfo(setCart);
   }, []);
 
   useEffect(() => {
     if (carInformation.length > 0) {
-      getPriceInfo();
+      getPriceInfo(carInformation, setTotal, setFee, setItems, setCarsPrice);
     }
   }, [carInformation]);
 
-  console.log(carInformation);
+  // console.log(carInformation);
   return (
     <>
       <section className="formCart">
@@ -95,10 +73,6 @@ const Checkout = () => {
             slidesToShow={1}
             animation="zoom"
             wrapAround={true}
-            // renderTopCenterControls={({ previousSlide }) => (
-            //   <FaChevronLeft className="right" onClick={previousSlide} />
-            // )}
-
             renderCenterLeftControls={({ previousSlide }) => (
               <FaChevronLeft className="right" onClick={previousSlide} />
             )}

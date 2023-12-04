@@ -1,15 +1,21 @@
-import "../css/navbar.css";
+import "../../css/navbar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart, faSearch } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import Cart from "../components/cart";
+import { IoIosMenu } from "react-icons/io";
+import logo from "../../img/logo4.png";
+
+import Cart from "../cart";
+import MobNav from "./MobileNav";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [carsInCart, setCarsInCart] = useState(0);
+  const [cartOpen, setCartOpen] = useState(false);
   const location = useLocation();
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     contCarNumber();
@@ -20,6 +26,10 @@ const Navbar = () => {
         setIsScrolled(false);
       }
     };
+
+    handleScroll();
+    setMenuOpen(false);
+    setCartOpen(false);
 
     window.addEventListener("scroll", handleScroll);
 
@@ -34,19 +44,35 @@ const Navbar = () => {
       setCarsInCart(JSON.parse(cars).length);
     }
   };
+  const handleCartMouseLeave = () => {
+    setCartOpen(false);
+  };
+
+  const setIsCartOpen = () => {
+    if (cartOpen) {
+      setCartOpen(false);
+      return;
+    }
+    setCartOpen(true);
+  };
+
+  const handleMenuOpen = () => {
+    if (menuOpen) {
+      setMenuOpen(false);
+      return;
+    }
+    setMenuOpen(true);
+  };
 
   return (
     <>
       <header className={isScrolled ? "active" : ""}>
         <Link to="/">
-          <img src="./logo4.png" alt="test" />
+          <img src={logo} alt="test" id="logo" />
         </Link>
 
         <nav className="navbar">
           <ul>
-            <li>
-              <Link>About</Link>
-            </li>
             <li>
               <Link>Team</Link>
             </li>
@@ -61,16 +87,23 @@ const Navbar = () => {
         </nav>
         <div className="cart">
           <FontAwesomeIcon icon={faSearch} />
-          <FontAwesomeIcon icon={faShoppingCart} className="cart" />
+          <FontAwesomeIcon
+            icon={faShoppingCart}
+            className="cart"
+            onClick={setIsCartOpen}
+          />
           <span className="counter">{carsInCart}</span>
 
           <span></span>
 
-          <Link to="/cars">
+          <Link to="/cars" id="explore">
             <button>Explore Vehicles</button>
           </Link>
-          <Cart />
+          {cartOpen && <Cart cartClosed={handleCartMouseLeave} />}
+
+          <IoIosMenu id="menu" onClick={handleMenuOpen} />
         </div>
+        <MobNav open={menuOpen} />
       </header>
     </>
   );

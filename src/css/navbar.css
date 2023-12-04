@@ -26,7 +26,7 @@ header button {
   transition: 0.2s ease-in-out;
 }
 
-header img {
+#logo {
   position: absolute;
   width: 130px;
   height: 130px;
@@ -122,15 +122,18 @@ header.active {
 }
 
 .cart-open {
+  all: unset;
   position: absolute;
   display: flex;
   flex-direction: column;
+  z-index: 5;
 
   right: 70%;
   top: 90%;
   background: #0d0c0c;
+  background: #fafafa;
   overflow: hidden;
-  /* height: 400px; */
+  height: auto;
   width: 250px;
   /* border: 2px dotted red; */
 
@@ -138,12 +141,143 @@ header.active {
   border-radius: 10px;
   padding: 10px;
 }
-#go-to-cart {
-  border: none;
-  background: linear-gradient(to right, #212121 6%, #0d0c0c 100%);
+
+.star {
+  color: #521a23 !important;
+  font-size: 1.3rem;
 }
 
-#cancel {
+.price-info p:first-child {
+  margin-top: 5px;
+  font-size: 1.1rem;
+}
+
+.car-price {
+  color: #521a23 !important;
+  font-size: 1.2rem;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+.start span {
+  font-size: 0.8rem;
+}
+
+.roses {
+  max-width: 250px;
+}
+
+.roses img {
+  width: 100%;
+}
+
+.price-info p,
+.car-espec p {
+  color: #000;
+}
+
+#go-to-checkout {
   border: none;
-  background: linear-gradient(to right, #c9c9c9 6%, #cec4c4 100%);
+  background: linear-gradient(to right, #c20f2a 6%, #830909 100%);
+  width: 100%;
+  margin-bottom: 10px;
+  transition: none;
+  padding-left: 30px;
+}
+
+#go-to-checkout:hover {
+  color: #fff !important;
+  background: #ca243d;
+}
+
+#go-to-cart {
+  border: none;
+  width: 100%;
+  padding-left: 30px;
+  background: linear-gradient(to right, #9d9c9c 6%, #bcbcbc 100%);
+}
+
+#go-to-cart span,
+#go-to-checkout span {
+  margin-left: 3px;
+}
+
+.no-items p {
+  color: #0d0c0c;
+  margin: 20px;
+  text-align: center;
+}
+
+#menu {
+  display: none;
+}
+
+.mobNav {
+  position: absolute;
+  right: 0%;
+  top: 90%;
+  background: #000000;
+  box-shadow: 2px 2px 5px #000;
+  width: 100%;
+  /* height: 200px; */
+  display: none;
+  justify-items: center;
+  z-index: 1;
+}
+
+.mobNav ul {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+}
+
+.mobNav li {
+  border-bottom: 2px solid rgb(10, 10, 10);
+  width: 100%;
+  /* height: 100px; */
+}
+
+.mobNav a {
+  text-align: center;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1.5rem;
+  width: 100%;
+  border-bottom: 1.3px solid #521a23;
+  padding: 5px;
+}
+
+.mobNav li a:hover {
+  color: #000;
+}
+
+.mobNav.active {
+  display: flex;
+}
+
+@media screen and (max-width: 768px) {
+  .navbar {
+    display: none;
+  }
+  #explore {
+    display: none;
+  }
+  .cart {
+    display: flex;
+    margin-right: 10px;
+    align-items: center;
+  }
+  #logo {
+    top: -15%;
+    left: 0;
+    width: 90px;
+    height: 90px;
+  }
+  #menu {
+    display: flex;
+    font-size: 2rem;
+    font-weight: 800;
+  }
 }

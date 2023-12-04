@@ -318,3 +318,46 @@ form label {
   display: flex;
   flex-direction: column;
 }
+
+@media screen and (max-width: 768px) {
+  .car-container {
+    display: flex;
+    flex-direction: column;
+
+    margin: 20px;
+    margin: 0 auto;
+    margin-bottom: 200px;
+  }
+
+  .photo {
+    max-height: 200px;
+  }
+  .description {
+    max-width: 350px;
+    padding: 0;
+    border: none;
+  }
+  .info {
+    justify-items: center;
+    display: flex;
+    margin: 10px;
+    width: 95%;
+  }
+  .info form {
+    margin: 0 auto;
+    margin-top: 60px;
+    padding: 20px;
+    width: 90%;
+  }
+  .horse {
+    top: 20%;
+  }
+
+  .speed {
+    top: 38%;
+  }
+
+  .buttons button {
+    width: 95%;
+  }
+}

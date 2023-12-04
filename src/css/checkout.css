@@ -146,3 +146,25 @@ legend {
   background: #521a23;
   fill: #521a23;
 }
+
+@media screen and (max-width: 912px) {
+  .formCart {
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    margin: 100px 0px 200px 20px;
+  }
+  .divider {
+    margin-top: 100px;
+    width: 90%;
+  }
+  #submit {
+    width: 90%;
+  }
+  .photo2 {
+    /* width: 100%; */
+  }
+  .photo2 img {
+    width: 100%;
+  }
+}
