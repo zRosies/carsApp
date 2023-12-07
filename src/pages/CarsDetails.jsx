@@ -9,6 +9,7 @@ import { GiHorseHead } from "react-icons/gi";
 import QuantityInput from "../components/quantityInput";
 import HomeDelivery from "../components/homeDeliveryInput";
 import TotalPrice from "../components/totalPrice";
+import confetti from "canvas-confetti";
 
 const Details = () => {
   const [carInfo, setCars] = useState([]);
@@ -19,6 +20,7 @@ const Details = () => {
   const [date, setDate] = useState("");
   const { id } = useParams();
   const navigate = useNavigate();
+  const [addedInformation, setAddedInformation] = useState(false);
 
   const getCarsInfo = async () => {
     try {
@@ -41,6 +43,13 @@ const Details = () => {
     setIsDelivery(delivery);
   };
 
+  const displayInfo = () => {
+    setAddedInformation(true);
+    setTimeout(() => {
+      setAddedInformation(false);
+    }, 2000);
+  };
+
   const addToCartInfo = () => {
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
@@ -61,6 +70,14 @@ const Details = () => {
 
     console.log(cart);
     localStorage.setItem("cart", JSON.stringify(cart)) || [];
+
+    displayInfo();
+    confetti({
+      particleCount: 30,
+      // angle: 50,
+      spread: 20,
+      origin: { x: 0.85, y: 0.18 }, // Change the origin to the center (0.5, 0.5)
+    });
   };
 
   const submitInfoAndRedirect = () => {
@@ -155,6 +172,14 @@ const Details = () => {
                           Add to cart <FaCartShopping />
                         </button>
                       </div>
+                      {addedInformation && (
+                        <div className="added-info">
+                          <p>
+                            <span>{car.carBrand} </span>
+                            {car.name} has been added to the cart
+                          </p>
+                        </div>
+                      )}
                     </form>
                   </div>
                 </div>

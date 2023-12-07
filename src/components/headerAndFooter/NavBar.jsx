@@ -17,8 +17,29 @@ const Navbar = () => {
   const location = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
 
+  const [localStorageChange, setLocalStorageChange] = useState(false);
+
   useEffect(() => {
-    contCarNumber();
+    countCarNumber();
+  }, [localStorageChange]);
+
+  useEffect(() => {
+    const handleStorageChange = () => {
+      // Update the state to force a re-render when localStorage changes
+      setLocalStorageChange((prevState) => !prevState);
+    };
+
+    // Listen for storage events
+    window.addEventListener("storage", handleStorageChange);
+
+    return () => {
+      // Clean up event listener on component unmount
+      window.removeEventListener("storage", handleStorageChange);
+    };
+  }, []);
+
+  useEffect(() => {
+    countCarNumber();
     const handleScroll = () => {
       if (location.pathname != "/" || window.scrollY > 10) {
         setIsScrolled(true);
@@ -38,7 +59,7 @@ const Navbar = () => {
     };
   }, [location]);
 
-  const contCarNumber = () => {
+  const countCarNumber = () => {
     if (localStorage.getItem("cart") != null) {
       const cars = localStorage.getItem("cart");
       setCarsInCart(JSON.parse(cars).length);
@@ -74,7 +95,7 @@ const Navbar = () => {
         <nav className="navbar">
           <ul>
             <li>
-              <Link>Team</Link>
+              <Link to="/team">Team</Link>
             </li>
 
             <li>

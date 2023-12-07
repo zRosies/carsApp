@@ -137,3 +137,38 @@ main {
   cursor: pointer;
   fill: #770303;
 }
+.heart {
+  display: flex;
+  justify-items: center;
+  justify-content: center;
+  margin-top: 100px;
+  margin-bottom: 200px;
+  text-align: center;
+}
+#heart-animation {
+  margin-top: 100px;
+  margin-left: 10px;
+  fill: #770303;
+  animation: heart 3s linear infinite;
+}
+
+@keyframes heart {
+  0% {
+    transform: scale(0.8);
+  }
+  20% {
+    transform: scale(1.5);
+  }
+  40% {
+    transform: scale(1);
+  }
+  60% {
+    transform: scale(1.5);
+  }
+  80% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0.8);
+  }
+}

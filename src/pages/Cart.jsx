@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { getCartInfo, getPriceInfo } from "../components/utils";
-import { FaTrashAlt } from "react-icons/fa";
+import { FaShoppingCart, FaTrashAlt } from "react-icons/fa";
 
 import "../css/cart.css";
 import { Link } from "react-router-dom";
@@ -19,19 +19,23 @@ const Cart = () => {
   }, []);
 
   useEffect(() => {
+    console.log();
+
     if (cartInfo != null) {
-      if (cartInfo.length != 0) {
+      if (cartInfo.length > 0) {
         getPriceInfo(cartInfo, setTotal, setFee, setItems, setCarsPrice);
+        setSubtotal(total - fee);
       }
     }
-    setSubtotal(total - fee);
   }, [cartInfo]);
 
   useEffect(() => {
     const local = localStorage.getItem("cart") || [];
-    const cart = JSON.parse(local);
 
-    setItemsLength(cart.length);
+    if (local.length > 0) {
+      const cart = JSON.parse(local);
+      setItemsLength(cart.length);
+    }
   }, [itemLength]);
 
   useEffect(() => {
@@ -57,7 +61,15 @@ const Cart = () => {
 
   return (
     <>
-      {cartInfo != 0 ? (
+      {itemLength === 0 ? (
+        <>
+          <div className="no-i">
+            <p>No items added yet.</p>
+            <p>Add items to the cart !</p>
+            <FaShoppingCart id="cart" />
+          </div>
+        </>
+      ) : (
         <div className="main-container">
           <section className="all-information">
             <div className="intro-cart">
@@ -117,13 +129,6 @@ const Cart = () => {
             </Link>
           </div>
         </div>
-      ) : (
-        <>
-          <div className="no-i">
-            <p>No items added yet.</p>
-            <p>Add items to the cart !</p>
-          </div>
-        </>
       )}
     </>
   );
