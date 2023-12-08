@@ -319,6 +319,35 @@ form label {
   flex-direction: column;
 }
 
+.added {
+  width: 200px;
+  height: 130px;
+  position: absolute;
+  z-index: 5;
+  top: -12%;
+  right: -15%;
+  padding: 20px;
+  background: #fff;
+  box-shadow: 2px 2px 5px;
+  animation: added 0.4s linear;
+  transition: 0.2s ease-in-out;
+}
+
+@keyframes added {
+  from {
+    transform: translateY(30%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+
+.added img {
+  width: 100%;
+}
+
 @media screen and (max-width: 768px) {
   .car-container {
     display: flex;

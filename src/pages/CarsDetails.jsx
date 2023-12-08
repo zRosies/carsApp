@@ -50,7 +50,7 @@ const Details = () => {
     }, 2000);
   };
 
-  const addToCartInfo = () => {
+  const addToCartInfo = (animation = true) => {
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
     const clientOption = {
@@ -72,16 +72,18 @@ const Details = () => {
     localStorage.setItem("cart", JSON.stringify(cart)) || [];
 
     displayInfo();
-    confetti({
-      particleCount: 30,
-      // angle: 50,
-      spread: 20,
-      origin: { x: 0.85, y: 0.18 }, // Change the origin to the center (0.5, 0.5)
-    });
+    if (animation) {
+      confetti({
+        particleCount: 30,
+
+        spread: 100,
+        origin: { x: 0.85, y: 0.3 },
+      });
+    }
   };
 
   const submitInfoAndRedirect = () => {
-    addToCartInfo();
+    addToCartInfo(false);
     navigate("/checkout");
   };
 
@@ -173,12 +175,17 @@ const Details = () => {
                         </button>
                       </div>
                       {addedInformation && (
-                        <div className="added-info">
-                          <p>
-                            <span>{car.carBrand} </span>
-                            {car.name} has been added to the cart
-                          </p>
-                        </div>
+                        <>
+                          <div className="added-info">
+                            <p>
+                              <span>{car.carBrand} </span>
+                              {car.name} has been added to the cart
+                            </p>
+                          </div>
+                          <div className="added">
+                            <img src={car.image.url} alt={car.name} />
+                          </div>
+                        </>
                       )}
                     </form>
                   </div>

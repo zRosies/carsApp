@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getCartInfo, getPriceInfo } from "../components/utils";
+import { getCartInfo, getPriceInfo, parseLocalInfo } from "../components/utils";
 import { FaShoppingCart, FaTrashAlt } from "react-icons/fa";
 
 import "../css/cart.css";
@@ -46,8 +46,8 @@ const Cart = () => {
 
   // -------Deleting from the cart here ------
   const deleteFromCart = (itemIndex) => {
-    const local = localStorage.getItem("cart");
-    let cart = JSON.parse(local) || [];
+    let cart = parseLocalInfo("cart");
+
     if (itemIndex === 0) {
       cart.shift();
     } else if (itemIndex > 0 && itemIndex < cart.length) {

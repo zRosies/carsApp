@@ -5,7 +5,7 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 import "../css/checkout.css";
 import { useEffect, useState } from "react";
-import { getCartInfo, getPriceInfo } from "../components/utils";
+import { getCartInfo, getPriceInfo, parseLocalInfo } from "../components/utils";
 
 const Checkout = () => {
   const [carInformation, setCart] = useState([]);
@@ -13,51 +13,125 @@ const Checkout = () => {
   const [fee, setFee] = useState(0);
   const [items, setItems] = useState(0);
   const [carsPrice, setCarsPrice] = useState(0);
+  const [date, setDate] = useState(0);
+  const [deliveryFee, setIsDeliveryFee] = useState(false);
+  const [carName, setCarsString] = useState("");
 
   useEffect(() => {
     getCartInfo(setCart);
+    // getPaymentInfoRemaining();
   }, []);
 
   useEffect(() => {
-    if (carInformation.length > 0) {
+    if (carInformation != null) {
       getPriceInfo(carInformation, setTotal, setFee, setItems, setCarsPrice);
     }
   }, [carInformation]);
+  // carsname
+  const getPaymentInfoRemaining = () => {
+    const data = parseLocalInfo("cart");
+    console.log(data);
+    const paymentInfo = data.map((item) => item.paymentInfo);
+    paymentInfo.map((info) => {
+      if (info.date.length != 0) {
+        setDate(info.date);
+      }
+      if (info.delivery != false) {
+        setIsDeliveryFee(info.delivery);
+      }
+    });
 
-  // console.log(carInformation);
+    // Here I am making a string of cars and sending it to the server in case the user wants
+    // more than one car
+    const cars = data.map((item) => item.car);
+    let carsString = "";
+    cars.map((car) => {
+      let string = `${car.carBrand} ${car.name}, `;
+      carsString += string;
+    });
+
+    setCarsString(carsString);
+  };
+
+  const clearLocalInfo = () => {
+    localStorage.removeItem("cart");
+  };
+
   return (
     <>
       <section className="formCart">
-        <form action="" className="checkout">
+        <form
+          action="submit"
+          className="checkout"
+          onSubmit={(e) => {
+            // getPaymentInfoRemaining();
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            const purchase = {
+              client: {
+                name: formData.get("name"),
+                phone: formData.get("phone"),
+                email: formData.get("email"),
+                address: formData.get("address"),
+              },
+              paymentInfo: {
+                quantity: items,
+                delivery: deliveryFee,
+                date: date,
+                fee: fee,
+                price: total,
+                carsName: carName,
+                method: formData.get("paymentMethod"),
+              },
+            };
+
+            fetch("http://localhost:3000/purchase", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(purchase),
+            });
+            clearLocalInfo();
+          }}
+        >
           <label htmlFor="name">
             Name:
-            <input type="name" id="name" required />
+            <input type="text" id="name" name="name" required />
           </label>
           <label htmlFor="phone">
             Phone:
-            <input type="phone" id="phone" required />
+            <input type="text" id="phone" name="phone" required />
           </label>
-          <label htmlFor="email">
+          <label htmlFor="text">
             Email:
-            <input type="email" id="email" required />
+            <input type="email" id="email" name="email" required />
           </label>
-          <label htmlFor="adress">
-            Adress:
-            <input type="adress" id="adress" required />
+          <label htmlFor="address">
+            Address:
+            <input type="text" id="adress" name="address" required />
           </label>
           <legend>Payment Method</legend>
-          <fieldset required className="method">
+          <fieldset className="method" required>
             <label htmlFor="card">
               Credit Card <FaCreditCard className="card" />
-              <input type="radio" id="card" name="paymentMethod" />
+              <input
+                type="radio"
+                id="card"
+                name="paymentMethod"
+                value="credit-card"
+              />
             </label>
             <label htmlFor="pix">
               Pix <FaPix className="pix" />
-              <input type="radio" id="pix" name="paymentMethod" />
+              <input type="radio" id="pix" name="paymentMethod" value="pix" />
             </label>
             <label htmlFor="paypal">
               PayPal <FaCcPaypal className="paypal" />
-              <input type="radio" id="paypal" name="paymentMethod" />
+              <input
+                type="radio"
+                id="paypal"
+                name="paymentMethod"
+                value="paypal"
+              />
             </label>
           </fieldset>
           <fieldset className="field">
@@ -66,40 +140,42 @@ const Checkout = () => {
             <p>Quantity: {items}x</p>
             <p>Total: ${total} </p>
           </fieldset>
-          <input type="submit" id="submit" value={"Check out"} />
+          <input type="submit" id="submit" />
         </form>
-        <section className="divider">
-          <Carousel
-            slidesToShow={1}
-            animation="zoom"
-            wrapAround={true}
-            renderCenterLeftControls={({ previousSlide }) => (
-              <FaChevronLeft className="right" onClick={previousSlide} />
-            )}
-            renderCenterRightControls={({ nextSlide }) => (
-              <FaChevronRight className="left" onClick={nextSlide} />
-            )}
-            defaultControlsConfig={{
-              pagingDotsClassName: "test",
-            }}
-          >
-            {carInformation.map((item, index) => {
-              const { car, paymentInfo } = item;
-              return (
-                <div key={index} className="cartInfo">
-                  <div className="photo2">
-                    <img src={car.image.url} alt={car.name} />
+        {carInformation != null && (
+          <section className="divider">
+            <Carousel
+              slidesToShow={1}
+              animation="zoom"
+              wrapAround={true}
+              renderCenterLeftControls={({ previousSlide }) => (
+                <FaChevronLeft className="right" onClick={previousSlide} />
+              )}
+              renderCenterRightControls={({ nextSlide }) => (
+                <FaChevronRight className="left" onClick={nextSlide} />
+              )}
+              defaultControlsConfig={{
+                pagingDotsClassName: "test",
+              }}
+            >
+              {carInformation.map((item, index) => {
+                const { car, paymentInfo } = item;
+                return (
+                  <div key={index} className="cartInfo">
+                    <div className="photo2">
+                      <img src={car.image.url} alt={car.name} />
+                    </div>
+                    <p>
+                      {car.carBrand} {car.name}
+                    </p>
+                    <p>Item: {paymentInfo.cars}x</p>
+                    <p>Home delivery: {paymentInfo.delivery ? "Yes" : "No"}</p>
                   </div>
-                  <p>
-                    {car.carBrand} {car.name}
-                  </p>
-                  <p>Item: {paymentInfo.cars}x</p>
-                  <p>Home delivery: {paymentInfo.delivery ? "Yes" : "No"}</p>
-                </div>
-              );
-            })}
-          </Carousel>
-        </section>
+                );
+              })}
+            </Carousel>
+          </section>
+        )}
       </section>
     </>
   );

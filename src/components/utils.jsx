@@ -40,3 +40,9 @@ export const getPriceInfo = (
   setItems(items);
   setCarsPrice(cars);
 };
+
+export const parseLocalInfo = (storageKey) => {
+  const local = localStorage.getItem(storageKey);
+  const data = JSON.parse(local) || [];
+  return data;
+};
