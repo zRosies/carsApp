@@ -4,7 +4,7 @@ import Carousel from "nuka-carousel";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import confetti from "canvas-confetti";
 import { MdEmail } from "react-icons/md";
-
+import { Helmet } from "react-helmet";
 import "../css/checkout.css";
 import { useEffect, useState } from "react";
 import { getCartInfo, getPriceInfo, parseLocalInfo } from "../components/utils";
@@ -79,11 +79,20 @@ const Checkout = () => {
 
   return (
     <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Veloster | Checkout </title>
+        <link rel="canonical" href="http://carapp.com.br" />
+        <meta
+          name="description"
+          content="Rent your car! Veloster is designed to give you the best cars with comfort and quality."
+        />
+      </Helmet>
       <section className="formCart">
         {carInformation?.length == 0 && (
           <div className="success">
             <h4>Your purchase was made successfuly</h4>
-            <p>A ticket was sent with more information</p>
+            <p>A ticket was sent to your email with more information</p>
             <MdEmail />
           </div>
         )}

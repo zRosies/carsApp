@@ -3,6 +3,7 @@ import "../css/cars.css";
 import { convertFloatToStar } from "../components/utils";
 import { Link } from "react-router-dom";
 import { FaHeart } from "react-icons/fa";
+import { Helmet } from "react-helmet";
 
 const MyFavorite = () => {
   const [favorites, setFavorites] = useState([]);
@@ -31,6 +32,15 @@ const MyFavorite = () => {
 
   return (
     <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Veloster | Favorites </title>
+        <link rel="canonical" href="http://carapp.com.br" />
+        <meta
+          name="description"
+          content="Add your favorite cars! We are designed to give you the best cars with comfort and quality. Good car prices and technology"
+        />
+      </Helmet>
       {favorites.length === 0 ? (
         <section className="heart">
           <p>

@@ -5,6 +5,7 @@ import { convertFloatToStar } from "../components/utils";
 import { Link } from "react-router-dom";
 import { FaRegHeart } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa";
+import { Helmet } from "react-helmet";
 import Loading from "../components/loading";
 
 export default function Cars() {
@@ -70,6 +71,15 @@ export default function Cars() {
 
   return (
     <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Veloster | Cars</title>
+        <link rel="canonical" href="http://carapp.com.br" />
+        <meta
+          name="description"
+          content="Rent your cars with security and comfort, Veloster is designed to give you the best cars"
+        />
+      </Helmet>
       <main>
         {loading ? (
           <Loading />

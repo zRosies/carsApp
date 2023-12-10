@@ -10,6 +10,7 @@ import QuantityInput from "../components/quantityInput";
 import HomeDelivery from "../components/homeDeliveryInput";
 import TotalPrice from "../components/totalPrice";
 import confetti from "canvas-confetti";
+import { Helmet } from "react-helmet";
 
 const Details = () => {
   const [carInfo, setCars] = useState([]);
@@ -87,8 +88,19 @@ const Details = () => {
     navigate("/checkout");
   };
 
+  console.log();
+
   return (
     <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Veloster | Details </title>
+        <link rel="canonical" href="http://carapp.com.br" />
+        <meta
+          name="description"
+          content="Amazing cars with good price, Veloster is designed to give you the best cars with comfort and quality."
+        />
+      </Helmet>
       <main>
         <section>
           {carInfo.map((car) => {

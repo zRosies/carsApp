@@ -8,6 +8,7 @@ import HomeForm from "../components/Homeform";
 import { Link } from "react-router-dom";
 import picture from "../img/medio.jpg";
 import Loading from "../components/loading";
+import { Helmet } from "react-helmet";
 
 function Home() {
   const [carlist, setCard] = useState([]);
@@ -29,6 +30,16 @@ function Home() {
 
   return (
     <>
+      {/* ----------------- The Helmet is a component used to set the head metadata for react applications ----------------  */}
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Veloster | Home </title>
+        <link rel="canonical" href="http://carapp.com.br" />
+        <meta
+          name="description"
+          content="Welcome to Veloster! We are designed to give you the best cars with comfort and quality. Good car prices"
+        />
+      </Helmet>
       {loading ? (
         <Loading />
       ) : (

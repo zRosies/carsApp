@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getCartInfo, getPriceInfo, parseLocalInfo } from "../components/utils";
 import { FaShoppingCart, FaTrashAlt } from "react-icons/fa";
+import { Helmet } from "react-helmet";
 
 import "../css/cart.css";
 import { Link } from "react-router-dom";
@@ -61,6 +62,15 @@ const Cart = () => {
 
   return (
     <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Veloster | Cart </title>
+        <link rel="canonical" href="http://carapp.com.br" />
+        <meta
+          name="description"
+          content="Add the best cars in the chat ! We are designed to give you the best cars with comfort and quality. Good car prices and technology"
+        />
+      </Helmet>
       {itemLength === 0 ? (
         <>
           <div className="no-i">
