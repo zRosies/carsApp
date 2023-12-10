@@ -1,0 +1,67 @@
+[
+  {
+    "name": "John Doe",
+    "role": "Marketing Specialist",
+    "url": "https://res.cloudinary.com/dygktir99/image/upload/f_auto,q_auto/hmtsz1lnkzhoqcssmwrb",
+
+    "fb": "johndoe.fb",
+    "inst": "johndoe_inst",
+    "wpp": "1234567890"
+  },
+  {
+    "name": "Alice Smith",
+    "role": "Finance Manager",
+    "url": "https://res.cloudinary.com/dygktir99/image/upload/f_auto,q_auto/oymsx8vuhmnsxueqrpfy",
+    "fb": "alicesmith.fb",
+    "inst": "alicesmith_inst",
+    "wpp": "9876543210"
+  },
+  {
+    "name": "Michael Johnson",
+    "role": "Sales Representative",
+    "url": "https://res.cloudinary.com/dygktir99/image/upload/f_auto,q_auto/ok8nme5woa1vs6cq6lwc",
+    "fb": "michaeljohnson.fb",
+    "inst": "michaeljohnson_inst",
+    "wpp": "5554443333"
+  },
+  {
+    "name": "Emily Davis",
+    "role": "Web Developer",
+    "url": "https://res.cloudinary.com/dygktir99/image/upload/f_auto,q_auto/mo0zuleoxssqiavp8sbq",
+    "fb": "emilydavis.fb",
+    "inst": "emilydavis_inst",
+    "wpp": "7778889999"
+  },
+  {
+    "name": "Sophia Wilson",
+    "role": "Social Marketing",
+    "url": "https://res.cloudinary.com/dygktir99/image/upload/f_auto,q_auto/hkjq0qws1eme5teb5lxc",
+    "fb": "sophiawilson.fb",
+    "inst": "sophiawilson_inst",
+    "wpp": "1112223333"
+  },
+  {
+    "name": "Daniel Brown",
+    "role": "Designer",
+    "url": "https://res.cloudinary.com/dygktir99/image/upload/f_auto,q_auto/tdczraytdcqcmkj6k3ay",
+    "fb": "danielbrown.fb",
+    "inst": "danielbrown_inst",
+    "wpp": "4445556666"
+  },
+  {
+    "name": "Olivia Martinez",
+    "role": "Mechanical Engineer",
+    "url": "https://res.cloudinary.com/dygktir99/image/upload/f_auto,q_auto/vjfjpqh5l2khdp6m2qut",
+    "fb": "oliviamartinez.fb",
+    "inst": "oliviamartinez_inst",
+    "wpp": "9998887777"
+  },
+  {
+    "name": "William Johnson",
+    "role": "Manager",
+    "url": "https://res.cloudinary.com/dygktir99/image/upload/f_auto,q_auto/aqpqvz7otritsprszja5",
+    "fb": "williamjohnson.fb",
+    "inst": "williamjohnson_inst",
+    "wpp": "3332221111"
+  }
+]

@@ -2,6 +2,8 @@ import { FaCreditCard, FaCcPaypal } from "react-icons/fa";
 import { FaPix } from "react-icons/fa6";
 import Carousel from "nuka-carousel";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import confetti from "canvas-confetti";
+import { MdEmail } from "react-icons/md";
 
 import "../css/checkout.css";
 import { useEffect, useState } from "react";
@@ -57,14 +59,40 @@ const Checkout = () => {
     localStorage.removeItem("cart");
   };
 
+  const congratulations = () => {
+    const colors = ["#bb0000", "#000000"];
+    confetti({
+      particleCount: 10,
+      angle: 60,
+      spread: 120,
+      origin: { x: 0 },
+      colors: colors,
+    });
+    confetti({
+      particleCount: 10,
+      angle: 120,
+      spread: 120,
+      origin: { x: 1 },
+      colors: colors,
+    });
+  };
+
   return (
     <>
       <section className="formCart">
+        {carInformation?.length == 0 && (
+          <div className="success">
+            <h4>Your purchase was made successfuly</h4>
+            <p>A ticket was sent with more information</p>
+            <MdEmail />
+          </div>
+        )}
+
         <form
           action="submit"
           className="checkout"
           onSubmit={(e) => {
-            // getPaymentInfoRemaining();
+            getPaymentInfoRemaining();
             e.preventDefault();
             const formData = new FormData(e.target);
             const purchase = {
@@ -91,6 +119,20 @@ const Checkout = () => {
               body: JSON.stringify(purchase),
             });
             clearLocalInfo();
+            // --- Call the congratulations function multiple times with a 100ms interval
+            const intervalId = setInterval(() => {
+              congratulations();
+            }, 50);
+            // --- keep calling the function for only 3s
+            setTimeout(() => {
+              clearInterval(intervalId);
+            }, 2500);
+
+            setCart([]);
+
+            setTimeout(() => {
+              window.location.href = "/";
+            }, 4100); //  --setting the cart empty so it will display the success message
           }}
         >
           <label htmlFor="name">
@@ -142,6 +184,7 @@ const Checkout = () => {
           </fieldset>
           <input type="submit" id="submit" />
         </form>
+
         {carInformation != null && (
           <section className="divider">
             <Carousel

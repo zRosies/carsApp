@@ -1,0 +1,70 @@
+.main-container-team {
+  display: flex;
+  flex-direction: column;
+  /* margin: 0 auto; */
+  margin-top: 35rem;
+  text-align: center;
+  justify-items: center;
+  align-items: center;
+  position: relative;
+  background: #fff;
+  padding-top: 50px;
+}
+.main-container-team h1 {
+  font-size: 3rem;
+  font-family: "Poppins";
+}
+
+.team-container {
+  display: flex;
+  flex-direction: column;
+
+  margin: 20px auto;
+  /* border: 0.05px solid #770303; */
+  box-shadow: 2px 2px 5px #000;
+  padding: 20px;
+}
+
+.team {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 100px;
+}
+.team h4 {
+  font-size: 1.5rem;
+  margin: 5px;
+}
+
+.team p {
+  margin-bottom: 15px;
+}
+
+.photo-em {
+  display: flex;
+  width: 300px;
+  height: 350px;
+  flex-wrap: wrap;
+  overflow: hidden;
+}
+
+.photo-em img {
+  width: 100%;
+  height: 100%;
+  transition: 0.3s ease-in-out;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.photo-em img:hover {
+  transform: scale(1.1);
+}
+
+.socials-em a {
+  text-decoration: none;
+}
+
+.socials-em svg {
+  fill: #770303;
+  font-size: 1.4rem;
+}

@@ -6,7 +6,7 @@ const MobNav = ({ open }) => {
     <>
       <nav className={`mobNav ${open ? "active" : ""}`}>
         <ul>
-          <Link>
+          <Link to="/team">
             <li>Team</li>
           </Link>
           <Link to="/myfavorite">

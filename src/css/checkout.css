@@ -138,6 +138,7 @@ legend {
   /* padding: 20px; */
   position: relative;
   top: 30px;
+  z-index: 40;
 }
 
 .test svg {
@@ -145,6 +146,36 @@ legend {
   border-radius: 5px;
   background: #521a23;
   fill: #521a23;
+}
+
+.success {
+  position: absolute;
+  top: 20%;
+  background: linear-gradient(to right, #080808 6%, #7c7373 100%);
+  padding: 20px;
+  text-align: center;
+  width: 400px;
+  color: #fff;
+  border-radius: 10px;
+  z-index: 4;
+  animation: success 0.5s linear;
+  /* transition: ease-in-out; */
+}
+
+@keyframes success {
+  from {
+    opacity: 0;
+    transform: translateY(40%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+
+.success svg {
+  margin-top: 10px;
+  font-size: 2rem;
 }
 
 @media screen and (max-width: 912px) {

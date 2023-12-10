@@ -61,23 +61,27 @@ function Home() {
               <div>
                 <h4>Variety of Cars</h4>
                 <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Repudiandae beatae quisquam magni adipisci est! Voluptatibus
+                  In today's diverse auto market, options abound, catering to
+                  varied tastes and needs. Sports cars thrill, SUVs offer space,
+                  and electric cars champion sustainability. This vast choice
+                  ensures everyone finds their perfect ride.
                 </p>
               </div>
               <div>
                 <h4>Competitive Price</h4>
                 <p>
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit
-                  architecto accusamus consequuntur facilis ea, dignissimos
-                  itaque
+                  In a competitive market, businesses navigate pricing
+                  strategies to attract customers. Balancing quality and
+                  affordability is key. This fosters innovation, benefits
+                  consumers, and drives market dynamics.
                 </p>
               </div>
               <div>
                 <h4>Support 24h</h4>
                 <p>
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                  Quisquam, reprehenderit. Incidunt ea, repellendus laborum
+                  In a 24-hour support system, customer needs are promptly
+                  addressed. This dedication ensures timely assistance,
+                  fostering trust and reliability in service delivery.
                 </p>
               </div>
             </section>

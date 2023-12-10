@@ -25,15 +25,12 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleStorageChange = () => {
-      // Update the state to force a re-render when localStorage changes
       setLocalStorageChange((prevState) => !prevState);
     };
 
-    // Listen for storage events
     window.addEventListener("storage", handleStorageChange);
 
     return () => {
-      // Clean up event listener on component unmount
       window.removeEventListener("storage", handleStorageChange);
     };
   }, []);
@@ -41,6 +38,7 @@ const Navbar = () => {
   useEffect(() => {
     countCarNumber();
     const handleScroll = () => {
+      console.log(location.pathname);
       if (location.pathname != "/" || window.scrollY > 10) {
         setIsScrolled(true);
       } else {
@@ -124,7 +122,7 @@ const Navbar = () => {
 
           <IoIosMenu id="menu" onClick={handleMenuOpen} />
         </div>
-        <MobNav open={menuOpen} />
+        <MobNav open={menuOpen} location={location.pathname} />
       </header>
     </>
   );

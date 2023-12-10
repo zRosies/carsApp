@@ -48,15 +48,18 @@ export default function Cars() {
       (favoriteCar) => favoriteCar.id === car.id
     );
 
-    if (!isCarInFavorites) {
-      favorites = [...favorites, car];
+    //-- Here I am adding the favorites and removing already existing favorites
 
+    if (!isCarInFavorites) {
       storedFavorites = [...storedFavorites, car];
       localStorage.setItem("favorites", JSON.stringify(storedFavorites));
       setFavorites(storedFavorites);
-    }
+    } else {
+      const updatedFav = favorites.filter((item) => item.id != car.id);
 
-    localStorage.setItem("favorites", JSON.stringify(favorites));
+      localStorage.setItem("favorites", JSON.stringify(updatedFav));
+      setFavorites(updatedFav);
+    }
   };
 
   const isFavorite = (car) => {
