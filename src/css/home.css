@@ -11,10 +11,11 @@ main {
   overflow: hidden;
 }
 
-.card {
-  /* display: flex; */
-  /* max-width: 500px; */
-  /* position: relative; */
+.active-button {
+  background: #fff !important;
+  color: #000 !important;
+  border: 1.4px solid #000;
+  transition: 0.3s ease-in-out;
 }
 
 #hero {
@@ -26,26 +27,13 @@ main {
   max-width: 1920px;
 }
 
-/* .card img {
-  object-fit: cover;
-  position: absolute;
-  width: 100%;
-  height: 10vh;
-  left: 0;
-  top: -10rem;
-  z-index: -3;
-} */
-
 .container {
   margin: 10px auto;
   display: flex;
   justify-content: space-between;
   margin-top: 200px;
   margin-bottom: 18rem;
-  /* border: 2px dotted red; */
-
   align-items: center;
-
   max-width: 1000px;
   position: relative;
   top: 5rem;
@@ -54,10 +42,8 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* width: 500px; */
   background: 2px solid red;
   align-self: center;
-  /* position: absolute; */
   z-index: 1;
 }
 
@@ -140,8 +126,6 @@ section {
 }
 .get form select:focus {
   background: rgb(3, 3, 3, 0.7);
-
-  /* Set the background of the options to transparent */
 }
 .get form option {
   font-size: 1em;
@@ -158,16 +142,11 @@ section {
 }
 
 .body {
-  /* border: 2px solid red; */
   margin: 0 auto;
   position: relative;
-  /* margin-top: 15em; */
-
   padding: 0 15rem 0 15rem;
-
   background: #fff;
   height: 100%;
-  /* padding-bottom: 50px; */
 }
 
 .body h1 {
@@ -211,8 +190,6 @@ section {
   margin-top: 80px;
   display: flex;
   justify-content: space-between;
-  /* margin-bottom: 30px; */
-  /* border: 1px solid red; */
   padding-bottom: 100px;
 }
 
@@ -289,22 +266,15 @@ section {
 
 @media screen and (max-width: 900px) {
   #loading {
-    left: 25%;
-  }
-  header {
-    /* display: none; */
+    width: 110px;
   }
 
   .container {
     display: flex;
     flex-direction: column;
-    /* display: none; */
-    /* width: 50%; */
-    /* margin: 0 auto !important; */
     width: 100%;
   }
   .discover {
-    /* width: 100%; */
     justify-content: center;
     text-align: center;
     width: 100%;
@@ -316,7 +286,6 @@ section {
     margin: 0;
   }
   #hero {
-    /* position: absolute; */
     height: 100%;
     width: 100%;
     top: 2rem;
@@ -370,7 +339,6 @@ section {
     padding: 20px;
   }
   .secondsection img {
-    /* display: none; */
     width: 100%;
     margin: 0;
   }

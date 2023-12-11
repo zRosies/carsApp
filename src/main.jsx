@@ -9,6 +9,7 @@ import Checkout from "./pages/Checkout.jsx";
 import Cart from "./pages/Cart.jsx";
 import MyFavorite from "./pages/Favorite.jsx";
 import Team from "./pages/Team.jsx";
+import Search from "./pages/Search.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -21,7 +22,8 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/myFavorite" element={<MyFavorite />} />
-          <Route path="/Team" element={<Team />} />
+          <Route path="/team" element={<Team />} />
+          <Route path="/search/:query" element={<Search />} />
         </Route>
       </Routes>
     </BrowserRouter>

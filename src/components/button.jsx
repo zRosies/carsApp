@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./index.css";
+import "../css/home.css";
 import { Link } from "react-router-dom";
 
 function Button() {
@@ -19,12 +19,14 @@ function Button() {
           Discover More
         </button>
       </Link>
-      <button
-        className={activeButton === "Meet R5" ? "active-button" : ""}
-        onClick={() => handleButtonClick("Meet R5")}
-      >
-        Meet R5
-      </button>
+      <Link to="/details/cloiwpo3j0dmn0aizkbpegx7b">
+        <button
+          className={activeButton === "Meet R5" ? "active-button" : ""}
+          onClick={() => handleButtonClick("Meet R5")}
+        >
+          Meet R5
+        </button>
+      </Link>
     </>
   );
 }

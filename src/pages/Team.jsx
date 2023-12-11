@@ -20,7 +20,7 @@ const Team = () => {
         alt="hero"
       />
       <section className="main-container-team">
-        <p id="professionals">Pro-Fessionals</p>
+        {/* <p id="professionals">Pro-Fessionals</p> */}
         <p>Amazing Professionals</p>
         <h1>The best team is here</h1>
         <div className="team">

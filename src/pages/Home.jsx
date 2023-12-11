@@ -72,7 +72,7 @@ function Home() {
               <div>
                 <h4>Variety of Cars</h4>
                 <p>
-                  In today's diverse auto market, options abound, catering to
+                  In today`s diverse auto market, options abound, catering to
                   varied tastes and needs. Sports cars thrill, SUVs offer space,
                   and electric cars champion sustainability. This vast choice
                   ensures everyone finds their perfect ride.

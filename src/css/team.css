@@ -23,9 +23,9 @@
   align-items: center;
   color: #fff;
   font-size: 5rem;
-  width: 1920px;
-  height: 300px;
-  backdrop-filter: blur(5px);
+  /* width: 1920px; */
+  /* height: 300px; */
+  /* backdrop-filter: blur(5px); */
   /* z-index: 20; */
 }
 

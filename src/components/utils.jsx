@@ -8,7 +8,6 @@ export const convertFloatToStar = (value) => {
       stars += "☆";
     }
   }
-  // console.log(stars);
   return stars;
 };
 

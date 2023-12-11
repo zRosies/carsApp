@@ -234,10 +234,3 @@ const Checkout = () => {
 };
 
 export default Checkout;
-
-// vertical={true}
-// nextDisabled={true}
-// defaultControlsConfig={{
-//   prevButtonClassName: "custom-prev-button",
-//   nextButtonClassName: "custom-next-button",
-// }}

@@ -16,6 +16,7 @@ const Navbar = () => {
   const [cartOpen, setCartOpen] = useState(false);
   const location = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [searchInput, setIsSearchOpen] = useState(false);
 
   const [localStorageChange, setLocalStorageChange] = useState(false);
 
@@ -83,6 +84,13 @@ const Navbar = () => {
     setMenuOpen(true);
   };
 
+  const setIsSearch = () => {
+    if (searchInput) {
+      setIsSearchOpen(false);
+      return;
+    }
+    setIsSearchOpen(true);
+  };
   return (
     <>
       <header className={isScrolled ? "active" : ""}>
@@ -104,8 +112,21 @@ const Navbar = () => {
             </li>
           </ul>
         </nav>
+
         <div className="cart">
-          <FontAwesomeIcon icon={faSearch} />
+          {searchInput && (
+            <form action="" className="form" onSubmit={() => {}}>
+              <label htmlFor="search">
+                <input
+                  type="text"
+                  name="search"
+                  id="search"
+                  placeholder="Search"
+                />
+              </label>
+            </form>
+          )}
+          <FontAwesomeIcon icon={faSearch} onClick={setIsSearch} />
           <FontAwesomeIcon
             icon={faShoppingCart}
             className="cart"

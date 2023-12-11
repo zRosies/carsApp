@@ -142,6 +142,39 @@ header.active {
   padding: 10px;
 }
 
+.form {
+  all: unset;
+  /* color: #fff; */
+  display: flex;
+  /* position: absolute; */
+  /* top: 108px; */
+  /* right: 15%; */
+}
+
+#search {
+  color: #fff;
+
+  top: 0;
+  right: 110%;
+  border-bottom: 2px solid #fff;
+  background: #222222;
+  padding: 5px;
+  border-radius: 5px;
+  animation: width 0.2s linear;
+  position: absolute;
+  /* display: none; */
+  max-width: 160px;
+}
+
+@keyframes width {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
 .star {
   color: #521a23 !important;
   font-size: 1.3rem;
