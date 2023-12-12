@@ -22,6 +22,7 @@ const Details = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [addedInformation, setAddedInformation] = useState(false);
+  const [error, setError] = useState("");
 
   const getCarsInfo = async () => {
     try {
@@ -52,6 +53,11 @@ const Details = () => {
   };
 
   const addToCartInfo = (animation = true) => {
+    if (date.length < 0 || date == "") {
+      setError("Select a date before continuing!");
+      return;
+    }
+    setError("");
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
     const clientOption = {
@@ -84,8 +90,12 @@ const Details = () => {
   };
 
   const submitInfoAndRedirect = () => {
-    addToCartInfo(false);
-    navigate("/checkout");
+    if (date.length > 0) {
+      addToCartInfo(false);
+      navigate("/checkout");
+      setError("");
+    }
+    setError("Select a date before continuing!");
   };
 
   console.log();
@@ -155,6 +165,25 @@ const Details = () => {
                           }}
                         />
                       </label>
+                      {error && (
+                        <>
+                          <p
+                            style={{
+                              background: "#770303",
+                              color: "#ffffff",
+                              padding: "4px",
+
+                              borderRadius: "5px",
+                              width: "70%",
+                              margin: "0 auto",
+                              marginTop: "10px",
+                              textAlign: "center",
+                            }}
+                          >
+                            {error}
+                          </p>
+                        </>
+                      )}
                       <QuantityInput
                         handleQuantityChange={handleQuantityChange}
                       />
