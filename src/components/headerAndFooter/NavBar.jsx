@@ -1,7 +1,7 @@
 import "../../css/navbar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart, faSearch } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { IoIosMenu } from "react-icons/io";
@@ -17,6 +17,7 @@ const Navbar = () => {
   const location = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchInput, setIsSearchOpen] = useState(false);
+  const navigate = useNavigate();
 
   const [localStorageChange, setLocalStorageChange] = useState(false);
 
@@ -115,7 +116,16 @@ const Navbar = () => {
 
         <div className="cart">
           {searchInput && (
-            <form action="" className="form" onSubmit={() => {}}>
+            <form
+              action=""
+              className="form"
+              onSubmit={(e) => {
+                e.preventDefault();
+                const data = new FormData(e.target);
+                const query = data.get("search");
+                navigate(`/search/${query}`);
+              }}
+            >
               <label htmlFor="search">
                 <input
                   type="text"

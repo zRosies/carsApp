@@ -294,6 +294,31 @@ header.active {
   background: transparent;
 }
 
+.results {
+  /* position: relative; */
+  /* text-align: center; */
+  font-family: "Poppins";
+  text-align: center;
+  font-weight: 600;
+  /* margin-left: 80px; */
+  margin-top: 90px;
+  font-size: 2.2rem;
+}
+
+.not-found {
+  margin: 0 auto;
+  margin-top: 200px;
+  margin-bottom: 300px;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+}
+
+.not-found svg {
+  font-size: 2.5rem;
+  fill: #521a23;
+}
+
 @media screen and (max-width: 768px) {
   .navbar {
     display: none;

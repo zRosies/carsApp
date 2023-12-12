@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { getCars } from "../connection/connection";
 import { useParams } from "react-router-dom";
 import CarCards from "../components/carCard";
+import { MdOutlineError } from "react-icons/md";
+import "../css/navbar.css";
 
 const Search = () => {
   const [filterdCars, setFilteredCars] = useState([]);
@@ -24,19 +26,12 @@ const Search = () => {
     }
   };
   const setFiltered = (data) => {
-    console.log(data);
-    const queryFormatted = query.toLocaleLowerCase();
-    // console.log(queryFormatted);
-    const queryRegex = new RegExp(queryFormatted, "i");
     // console.log(data);
-    const newCars = data.filter((car) => {
-      let carFormatted = car.name.toLowerCase();
-      let brandFormatted = car.carBrand.toLowerCase();
+    const queryFormatted = query.toLocaleLowerCase();
+    const queryRegex = new RegExp(queryFormatted, "i");
 
-      return (
-        // carFormatted.includes(query) || brandFormatted.includes(queryFormatted)
-        queryRegex.test(carFormatted) || queryRegex.test(brandFormatted)
-      );
+    const newCars = data.filter((car) => {
+      return queryRegex.test(car.name) || queryRegex.test(car.carBrand);
     });
     setFilteredCars(newCars);
   };
@@ -45,12 +40,28 @@ const Search = () => {
     carData();
   }, [query]);
 
-  //   console.log(carInfo);
-  console.log(filterdCars);
+  //   console.log(filterdCars);
 
   return (
     <>
-      <CarCards carsInfo={filterdCars} />
+      {filterdCars?.length > 0 ? (
+        <>
+          <p className="results">
+            {" "}
+            Results for {query}... <span>({filterdCars.length}) </span>
+          </p>
+          <CarCards carsInfo={filterdCars} />
+        </>
+      ) : (
+        <>
+          <section className="not-found">
+            <p>No results found for {query}...</p>
+            <p>
+              <MdOutlineError />
+            </p>
+          </section>
+        </>
+      )}
     </>
   );
 };
