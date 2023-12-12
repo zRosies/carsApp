@@ -122,7 +122,7 @@ const Checkout = () => {
               },
             };
 
-            fetch("http://localhost:3000/purchase", {
+            fetch("https://veloster.onrender.com/purchase", {
               method: "POST",
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify(purchase),

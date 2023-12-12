@@ -352,10 +352,12 @@ form label {
   .car-container {
     display: flex;
     flex-direction: column;
-
-    margin: 20px;
-    margin: 0 auto;
+    margin: 30px auto;
     margin-bottom: 200px;
+    margin-top: 40px;
+  }
+  .brand p {
+    margin-top: 10px;
   }
 
   .photo {
@@ -371,6 +373,7 @@ form label {
     display: flex;
     margin: 10px;
     width: 95%;
+    padding: 0;
   }
   .info form {
     margin: 0 auto;

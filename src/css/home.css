@@ -288,7 +288,7 @@ section {
   #hero {
     height: 100%;
     width: 100%;
-    top: 2rem;
+    top: 0;
     object-fit: cover;
   }
   .container form {
